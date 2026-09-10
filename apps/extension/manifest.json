@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Brain",
+  "version": "0.1.0",
+  "description": "A local-first memory layer for your browser.",
+  "permissions": ["tabs", "storage", "webNavigation", "sidePanel"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Brain"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "options_page": "options.html"
+}
