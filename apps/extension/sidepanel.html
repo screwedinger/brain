@@ -1,13 +1,1 @@
-<!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Brain</title><link rel="stylesheet" href="sidepanel.css"></head>
-<body><main>
-<div class="eyebrow">BRAIN</div>
-<h1>Your browser<br><span>remembers.</span></h1>
-<p class="muted">Brain is quietly building a local memory of where you go and what you read.</p>
-<div class="stats">
-<section class="card"><div class="label">PAGES</div><strong id="pages">—</strong><p>Unique pages remembered.</p></section>
-<section class="card"><div class="label">VISITS</div><strong id="visits">—</strong><p>Browsing sessions captured.</p></section>
-<section class="card"><div class="label">EVENTS</div><strong id="events">—</strong><p>Browser events stored locally.</p></section>
-</div>
-<section class="card"><div class="label">STATUS</div><div class="status"><i></i> Capturing locally</div><p>No passwords, cookies, keystrokes or form values are collected.</p></section>
-</main><script src="sidepanel.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Brain</title><link rel="stylesheet" href="sidepanel.css"></head><body><main><header><div><div class="eyebrow">BRAIN</div><h1>Your browser <span>remembers.</span></h1><p class="muted">A live view of what Brain has captured locally.</p></div><button id="refresh">Refresh</button></header><div class="stats"><section class="card"><div class="label">PAGES</div><strong id="pages">—</strong></section><section class="card"><div class="label">VISITS</div><strong id="visits">—</strong></section><section class="card"><div class="label">EVENTS</div><strong id="events">—</strong></section></div><section class="memory"><div class="section-head"><div><div class="label">RECENT MEMORY</div><h2>Where you've been</h2></div><span id="updated">—</span></div><div id="list" class="list"><div class="empty">Loading local memory…</div></div></section><section class="card privacy"><div class="label">LOCAL ONLY</div><p>Brain currently stores memory on this browser. No cloud sync or AI processing is active.</p></section></main><script src="sidepanel.js"></script></body></html>
