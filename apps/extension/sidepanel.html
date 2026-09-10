@@ -14,13 +14,18 @@
         <h1>Your browser <span>remembers.</span></h1>
         <p class="muted">A live view of what Brain has captured locally.</p>
       </div>
-      <button id="refresh">Refresh</button>
+      <div class="actions">
+        <button id="import">Import history</button>
+        <button id="refresh">Refresh</button>
+      </div>
     </header>
 
+    <div id="status" class="status"></div>
+
     <div class="stats">
-      <section class="card"><div class="label">PAGES</div><strong id="pages">—</strong></section>
-      <section class="card"><div class="label">VISITS</div><strong id="visits">—</strong></section>
-      <section class="card"><div class="label">EVENTS</div><strong id="events">—</strong></section>
+      <section class="card"><div class="label">PAGES</div><strong id="pages">—</strong><small>Unique pages</small></section>
+      <section class="card"><div class="label">VISITS</div><strong id="visits">—</strong><small>Recorded visits</small></section>
+      <section class="card"><div class="label">EVENTS</div><strong id="events">—</strong><small>Browser events</small></section>
     </div>
 
     <section class="memory">
@@ -38,7 +43,7 @@
 
     <section class="card privacy">
       <div class="label">LOCAL ONLY</div>
-      <p>URLs, titles, timestamps, visit duration and browser events are stored locally. No cloud sync or AI processing is active.</p>
+      <p>URLs, titles, timestamps, visit duration and page content are stored locally. No cloud sync or AI processing is active.</p>
     </section>
   </main>
   <script src="sidepanel.js"></script>
