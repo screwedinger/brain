@@ -1,11 +1,4 @@
 (() => {
-  if (window.__BRAIN_CONTENT__) {
-    // The script may already be present after a navigation/reload. Keep the
-    // listener alive so the background service worker can request a fresh capture.
-    return;
-  }
-  window.__BRAIN_CONTENT__ = true;
-
   const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
 
   async function hashText(text) {
@@ -41,9 +34,18 @@
     chrome.runtime.sendMessage({ type: 'PAGE_CAPTURE', page }).catch(() => {});
   }
 
-  chrome.runtime.onMessage.addListener(message => {
-    if (message?.type === 'BRAIN_CAPTURE_PAGE') capture();
-  });
+  // A service-worker restart or extension reload can leave the content script
+  // alive in an existing tab. Install the request listener exactly once.
+  if (!window.__BRAIN_CAPTURE_LISTENER__) {
+    window.__BRAIN_CAPTURE_LISTENER__ = true;
+    chrome.runtime.onMessage.addListener(message => {
+      if (message?.type === 'BRAIN_CAPTURE_PAGE') capture();
+    });
+  }
 
-  capture();
+  // Capture once when the script is first injected on a document.
+  if (!window.__BRAIN_CONTENT__) {
+    window.__BRAIN_CONTENT__ = true;
+    capture();
+  }
 })();
